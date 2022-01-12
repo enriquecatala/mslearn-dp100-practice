@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+ 
+
+  jupyter:
+    image:  mslearn-dp100-practice
+    container_name: mslearn-dp100-practice
+    hostname:
+        mslearn-dp100-practice
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    command:  /bin/bash -c "  /opt/miniconda/bin/conda init bash && jupyter notebook --ip 0.0.0.0 --port 8888 --allow-root --no-browser && /var/opt/jupyter/upload/python main.py && tail -f /dev/null "
+    volumes:
+     - type : bind
+       source: ./mslearn-dp100/
+       target: /var/opt/jupyter/mslearn-dp100/    
+   
+volumes:
+ localjupvolume:
+  
+  
+    
