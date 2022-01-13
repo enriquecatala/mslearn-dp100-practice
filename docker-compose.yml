@@ -16,6 +16,8 @@ services:
      - type : bind
        source: ./mslearn-dp100/
        target: /var/opt/jupyter/mslearn-dp100/    
-   
+     - type : bind
+       source: ./config.json
+       target: /var/opt/jupyter/config.json
 volumes:
  localjupvolume:
